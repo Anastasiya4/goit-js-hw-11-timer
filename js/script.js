@@ -20,13 +20,18 @@ if(this.isActive){
 this.isActive = true;
 const targetDate = new Date('Jul 17, 2019');
 
-//updateClockface(0);
-
-this.intervalId = setInterval(() => {
-    const currentTime = Date.now();
+function ShowTime (){
+  const currentTime = Date.now();
     const time = targetDate - currentTime;
 
     updateClockface(time);
+}
+
+
+//updateClockface(0);
+ShowTime();
+this.intervalId = setInterval(() => {
+    ShowTime();
 }, 1000);
 },
 stop(){
